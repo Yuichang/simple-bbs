@@ -3,7 +3,6 @@ module github.com/Yuichang/simple-bbs
 go 1.24.5
 
 require (
-	github.com/Yuichang/go_user_crud v0.0.0-20251102093428-9e39605a64e5
 	github.com/gin-gonic/gin v1.11.0
 	github.com/go-sql-driver/mysql v1.9.3
 	github.com/joho/godotenv v1.5.1
