@@ -13,6 +13,7 @@ type Post struct {
 	CreatedAt time.Time
 }
 
+//dbからポスト一覧を取得する
 func ListPosts(ctx context.Context, db *sql.DB) ([]Post, error) {
 
 	// 昇順にポストを取り出す
@@ -23,7 +24,7 @@ func ListPosts(ctx context.Context, db *sql.DB) ([]Post, error) {
 	defer rows.Close()
 	posts := []Post{}
 
-	// sqlから取得したデータを一行ずつpostsに追加してく
+	// dbから取得したデータを一行ずつpostsに追加してく
 	for rows.Next() {
 		var p Post
 		if err := rows.Scan(&p.ID, &p.Name, &p.Body, &p.CreatedAt); err != nil {

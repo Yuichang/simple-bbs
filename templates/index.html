@@ -11,9 +11,17 @@
 <body>
     <h1>シンプルな掲示板</h1>
 
+    <!-- ここに投稿を表示する-->
+    {{range .posts}}
+    {{.ID}}: 名前: {{.Name}} {{.CreatedAt}}<br>
+    {{ .Body}}<br>
+    <hr>
+    {{end}}
+
+    
     <!-- 後でDBつなぐ-->
-    <form action="" method="POST">
-        <input type="text" name="message"><br>
+    <form action="/" method="POST">
+        <input type="text" name="body"><br>
         <button type="submit">送信</button>
     </form>
 </body>

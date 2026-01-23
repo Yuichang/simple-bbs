@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 	"os"
+	"time"
 
 	"github.com/go-sql-driver/mysql"
 	"github.com/joho/godotenv"
@@ -18,11 +19,13 @@ func ConnectDB() (*sql.DB, error) {
 
 	// DSNを構築
 	cfg := mysql.Config{
-		User:   os.Getenv("DB_USER"),
-		Passwd: os.Getenv("DB_PASS"),
-		Net:    "tcp",
-		Addr:   os.Getenv("DB_ADDRESS"),
-		DBName: os.Getenv("DB_NAME"),
+		User:      os.Getenv("DB_USER"),
+		Passwd:    os.Getenv("DB_PASS"),
+		Net:       "tcp",
+		Addr:      os.Getenv("DB_ADDRESS"),
+		DBName:    os.Getenv("DB_NAME"),
+		ParseTime: true,
+		Loc:       time.Local,
 	}
 	// DBハンドルの作成
 	db, err := sql.Open("mysql", cfg.FormatDSN())

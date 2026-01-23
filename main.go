@@ -23,8 +23,11 @@ func main() {
 	// テンプレート読み込み
 	r.LoadHTMLGlob("templates/*")
 
+	// ハンドラにDBを渡す
+	h:=&handlers.Handler{DB:db}
 	// "indexページ"
-	r.GET("/", handlers.ShowIndex)
+	r.GET("/", h.ShowIndex)
+	// 投稿
 
 	// サーバ起動(http://localhost:8080)
 	r.Run()
