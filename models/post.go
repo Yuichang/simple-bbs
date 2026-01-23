@@ -7,13 +7,14 @@ import (
 )
 
 type Post struct {
-	ID        int
-	Name      string
-	Body      string
-	CreatedAt time.Time
+	ID               int
+	Name             string
+	Body             string
+	CreatedAt        time.Time
+	CreatedAtDisplay string
 }
 
-//dbからポスト一覧を取得する
+// dbからポスト一覧を取得する
 func ListPosts(ctx context.Context, db *sql.DB) ([]Post, error) {
 
 	// 昇順にポストを取り出す
@@ -30,6 +31,7 @@ func ListPosts(ctx context.Context, db *sql.DB) ([]Post, error) {
 		if err := rows.Scan(&p.ID, &p.Name, &p.Body, &p.CreatedAt); err != nil {
 			return nil, err
 		}
+		p.CreatedAtDisplay = p.CreatedAt.Format("2006-01-02 15:04:05")
 		posts = append(posts, p)
 	}
 	// ループ中にエラーが発生していないか
@@ -37,4 +39,9 @@ func ListPosts(ctx context.Context, db *sql.DB) ([]Post, error) {
 		return nil, err
 	}
 	return posts, nil
+}
+
+func CreatePost(ctx context.Context, db *sql.DB, name, body string) error {
+	_, err := db.ExecContext(ctx, "INSERT INTO post (name, body, created_at) VALUES (?, ?, ?)", name, body, time.Now())
+	return err
 }

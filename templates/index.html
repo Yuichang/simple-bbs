@@ -13,16 +13,16 @@
 
     <!-- ここに投稿を表示する-->
     {{range .posts}}
-    {{.ID}}: 名前: {{.Name}} {{.CreatedAt}}<br>
+    {{.ID}}: 名前: {{.Name}} {{.CreatedAtDisplay}}<br>
     {{ .Body}}<br>
     <hr>
     {{end}}
 
-    
     <!-- 後でDBつなぐ-->
     <form action="/" method="POST">
-        <input type="text" name="body"><br>
-        <button type="submit">送信</button>
+        <input type="text" name="name" placeholder="名前（省略可）"><br>
+        <input type="text" name="body" placeholder="コメント内容"><br>
+        <button type="submit">書き込む</button>
     </form>
 </body>
 
