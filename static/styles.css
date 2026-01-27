@@ -1,10 +1,10 @@
 button {
     background-color: plum;
-    border-radius: 5px;
+    border-radius: 4px;
 }
 
 footer {
-    margin-top: 16%;
+    margin-top: 12%;
     background-color: plum;
     text-align: center;
 }
@@ -38,6 +38,19 @@ footer {
 .post-stack textarea {
     width: 100%;
 }
+
+input:focus {
+    outline: none;
+    border: 2px solid plum;
+    border-radius: 4px;
+}
+
+.input-box :is(input, textarea):focus {
+    outline: none;
+    border: 2px solid plum;
+    border-radius: 4px;
+}
+
 
 .post-stack button {
     width: auto;
