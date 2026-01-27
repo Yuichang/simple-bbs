@@ -24,7 +24,7 @@
             {{end}}
         </div>
 
-        <form class="post-stack" action="/" method="POST">
+        <form class="post-stack" action="/" onsubmit="return check(this.body.value)" method="POST">
             <div class="input-box">
                 <input type="text" name="name" placeholder="名前（省略可）">
             </div>
@@ -42,5 +42,7 @@
     </footer>
 
 </body>
+
+<script src="/static/script.js" defer></script>
 
 </html>
