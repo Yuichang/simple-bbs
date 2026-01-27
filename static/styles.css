@@ -1,0 +1,16 @@
+button {
+    background-color: plum;
+    border-radius: 5px;
+}
+
+footer {
+    margin-top: 16%;
+    background-color: plum;
+}
+
+/*
+.form-stack{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}*/

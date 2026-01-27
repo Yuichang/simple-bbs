@@ -19,12 +19,17 @@
     <hr>
     {{end}}
 
-    <!-- 後でDBつなぐ-->
-    <form action="/" method="POST">
-        <input type="text" name="name" placeholder="名前（省略可）"><br>
-        <input type="text" name="body" placeholder="コメント内容"><br>
+    <form class="form-stack" action="/" method="POST">
+        <input type="text" name="name" placeholder="名前（省略可）">
+        <div class="body_form">
+            <textarea name="body" rows="5" placeholder="コメント内容"></textarea>
+        </div>
         <button type="submit">書き込む</button>
     </form>
+
+    <footer>
+        <p>2026 シンプル掲示板</p>
+    </footer>
 </body>
 
 </html>

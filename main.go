@@ -20,6 +20,9 @@ func main() {
 	// ルータ作成
 	r := gin.Default()
 
+	// 静的ファイル
+	r.Static("/static", "./static")
+
 	// テンプレート読み込み
 	r.LoadHTMLGlob("templates/*")
 
