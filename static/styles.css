@@ -1,6 +1,7 @@
 button {
     background-color: plum;
     border-radius: 4px;
+    border: 1px solid black;
 }
 
 footer {
@@ -23,6 +24,12 @@ footer {
     text-align: left;
     overflow-wrap: anywhere;
     word-break: break-word;
+}
+
+.del-button {
+    display: flex;
+    justify-content: flex-end;
+
 }
 
 .post-stack {
