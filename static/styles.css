@@ -6,11 +6,40 @@ button {
 footer {
     margin-top: 16%;
     background-color: plum;
+    text-align: center;
 }
 
-/*
-.form-stack{
+.post-area {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.post-area h1 {
+    text-align: center;
+}
+
+.posts {
+    margin-top: 12px;
+    text-align: left;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.post-stack {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-}*/
+    text-align: left;
+    width: 100%;
+    margin-top: 8px;
+    gap: 4px;
+}
+
+.post-stack input,
+.post-stack textarea {
+    width: 100%;
+}
+
+.post-stack button {
+    width: auto;
+    align-self: flex-start;
+}

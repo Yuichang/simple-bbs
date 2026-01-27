@@ -10,26 +10,34 @@
 </head>
 
 <body>
-    <h1>シンプルな掲示板</h1>
 
-    <!-- ここに投稿を表示する-->
-    {{range .posts}}
-    {{.ID}}: {{.Name}} {{.CreatedAtDisplay}}<br>
-    {{ .Body}}<br>
-    <hr>
-    {{end}}
+    <div class="post-area">
+        <h1>シンプルな掲示板</h1>
 
-    <form class="form-stack" action="/" method="POST">
-        <input type="text" name="name" placeholder="名前（省略可）">
-        <div class="body_form">
-            <textarea name="body" rows="5" placeholder="コメント内容"></textarea>
+        <!-- ここに投稿を表示する-->
+
+        <div class="posts">
+            {{range .posts}}
+            {{.ID}}: {{.Name}} {{.CreatedAtDisplay}}<br>
+            {{ .Body}}<br>
+            <hr style="width:100%;" size="1" noshade>
+            {{end}}
         </div>
-        <button type="submit">書き込む</button>
-    </form>
+
+        <form class="post-stack" action="/" method="POST">
+            <input type="text" name="name" placeholder="名前（省略可）">
+            <div class="body-form">
+                <textarea name="body" rows="5" placeholder="コメント内容"></textarea>
+            </div>
+            <button type="submit">書き込む</button>
+
+        </form>
+    </div>
 
     <footer>
         <p>2026 シンプル掲示板</p>
     </footer>
+
 </body>
 
 </html>
