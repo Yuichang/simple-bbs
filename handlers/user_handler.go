@@ -14,13 +14,18 @@ type Handler struct {
 
 // welcomeページ 後で変えるかも。
 func (h Handler) ShowIndex(c *gin.Context) {
+	c.HTML(http.StatusOK, "index.html", gin.H{})
+}
+
+// welcomeページ 後で変えるかも。
+func (h Handler) ShowHome(c *gin.Context) {
 	posts, err := models.ListPosts(c.Request.Context(), h.DB)
 	if err != nil {
 		c.String(http.StatusInternalServerError, "DB error", err)
 		return
 	}
 
-	c.HTML(http.StatusOK, "index.html", gin.H{
+	c.HTML(http.StatusOK, "home.html", gin.H{
 		"posts": posts,
 	})
 }
@@ -39,5 +44,5 @@ func (h Handler) CreatePost(c *gin.Context) {
 		return
 	}
 
-	c.Redirect(http.StatusSeeOther, "/")
+	c.Redirect(http.StatusSeeOther, "/home")
 }

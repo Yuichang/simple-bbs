@@ -1,0 +1,12 @@
+button {
+    background-color: plum;
+    border-radius: 4px;
+    border: 1px solid black;
+}
+
+
+footer {
+    margin-top: 12%;
+    background-color: plum;
+    text-align: center;
+}

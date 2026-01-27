@@ -6,52 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple BBS</title>
     <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css">
-    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="/static/base.css">
+    <link rel="stylesheet" href="/static/index.css">
 </head>
 
 <body>
+    <!--アニメーションつけてみる -->
 
-    <div class="post-area">
-        <h1>シンプルな掲示板</h1>
+    <div class="title">
+        <h1 class="typing">Simple BBS （仮）</h1>
 
-        <!-- ここに投稿を表示する-->
-
-        <div class="posts">
-            {{range .posts}}
-            {{.ID}}: {{.Name}} {{.CreatedAtDisplay}}<br>
-            {{ .Body}}<br>
-
-            <!-- 削除ボタンに機能もたせる（後で）-->
-
-            <form class="del-button" action="/delete" method="POST" onsubmit="return confirm('本当に削除しますか？')">
-                <input type="hidden" name="post_id" value="{{.ID}}">
-                <button type="submit">削除</button>
+        <div class="submit-btn">
+            <form action="/home" method="GET">
+                <button type="submit">ホームへ</button>
             </form>
-
-
-            <hr style="width:100%;" size="1" noshade>
-            {{end}}
         </div>
-
-        <form class="post-stack" action="/" onsubmit="return check(this.body.value)" method="POST">
-            <div class="input-box">
-                <input type="text" name="name" placeholder="名前（省略可）">
-            </div>
-
-            <div class="input-box">
-                <textarea name="body" rows="5" placeholder="コメント内容"></textarea>
-            </div>
-            <button type="submit">書き込む</button>
-
-        </form>
     </div>
-
-    <footer>
-        <p>🐹2026:シンプル掲示板🐹</p>
-    </footer>
-
 </body>
-
-<script src="/static/script.js" defer></script>
 
 </html>

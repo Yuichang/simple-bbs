@@ -1,0 +1,33 @@
+/* ど真ん中に配置する*/
+.title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+.submit-btn {
+    margin-top: 4rem;
+}
+
+.typing {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    animation: typing 1.5s steps(14, end) forwards;
+}
+
+@keyframes typing {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 14ch
+    }
+}
