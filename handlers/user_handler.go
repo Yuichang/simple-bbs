@@ -46,3 +46,14 @@ func (h Handler) CreatePost(c *gin.Context) {
 
 	c.Redirect(http.StatusSeeOther, "/home")
 }
+
+// 投稿を削除するハンドラ
+func (h Handler) DeletePost(c *gin.Context) {
+	id := c.Param("id")
+	err := models.DeletePost(c.Request.Context(), h.DB, id)
+	if err != nil {
+		c.String(http.StatusInternalServerError, "DB error", err)
+		return
+	}
+	c.Redirect(http.StatusSeeOther, "/home")
+}

@@ -25,11 +25,9 @@
 
             <!-- 削除ボタンに機能もたせる（後で）-->
 
-            <form class="del-button" action="/delete" method="POST" onsubmit="return confirm('本当に削除しますか？')">
-                <input type="hidden" name="post_id" value="{{.ID}}">
+            <form class="del-button" action="/delete/{{.ID}}" method="POST" onsubmit="return confirm('本当に削除しますか？')">
                 <button type="submit">削除</button>
             </form>
-
 
             <hr style="width:100%;" size="1" noshade>
             {{end}}

@@ -45,3 +45,8 @@ func CreatePost(ctx context.Context, db *sql.DB, name, body string) error {
 	_, err := db.ExecContext(ctx, "INSERT INTO post (name, body, created_at) VALUES (?, ?, ?)", name, body, time.Now())
 	return err
 }
+
+func DeletePost(ctx context.Context, db *sql.DB, id string) error {
+	_, err := db.ExecContext(ctx, "DELETE FROM post WHERE id = ?", id)
+	return err
+}

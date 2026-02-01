@@ -34,8 +34,12 @@ func main() {
 	// "homeページ"
 	r.GET("/home", h.ShowHome)
 
-	// 投稿
+	// 投稿作成
 	r.POST("/home", h.CreatePost)
+
+	// 投稿削除
+	r.POST("/delete/:id", h.DeletePost)
+
 	// サーバ起動(http://localhost:8080)
 	r.Run()
 }
