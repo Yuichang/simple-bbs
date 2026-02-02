@@ -1,7 +1,9 @@
 .layout {
     display: flex;
     flex-direction: row;
-    margin-left: 20%;
+    margin: 0 auto;
+    padding: 0 16px;
+    max-width: 600px;
 }
 
 .post-area {
@@ -9,7 +11,11 @@
 }
 
 .side-area {
-    width: 20%;
+    position: fixed;
+    right: 0;
+    width: 60px;
+    height: 100vh;
+    background: red;
 }
 
 .post-area h1 {
@@ -43,20 +49,11 @@
     width: 100%;
 }
 
-input:focus {
-    outline: none;
-    border: 2px solid plum;
-    border-radius: 4px;
-}
-
-.input-box :is(input, textarea):focus {
-    outline: none;
-    border: 2px solid plum;
-    border-radius: 4px;
-}
-
-
 .post-stack button {
     width: auto;
     align-self: flex-start;
+}
+
+.post {
+    font-size: 12px;
 }

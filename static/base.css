@@ -10,3 +10,14 @@ footer {
     background-color: plum;
     text-align: center;
 }
+
+.input-box :is(input, textarea) {
+    border-radius: 4px;
+    border: 1px solid #aaa;
+}
+
+.input-box :is(input, textarea):focus {
+    outline: none;
+    border: 1px solid plum;
+    border-radius: 4px;
+}
