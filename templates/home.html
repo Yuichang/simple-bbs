@@ -13,37 +13,46 @@
 
 <body>
 
-    <div class="post-area">
-        <h1>シンプルな掲示板</h1>
+    <div class="layout">
 
-        <!-- ここに投稿を表示する-->
+        <!-- メイン -->
+        <div class="post-area">
+            <h1>シンプルな掲示板</h1>
 
-        <div class="posts">
-            {{range .posts}}
-            {{.ID}}: {{.Name}} {{.CreatedAtDisplay}}<br>
-            {{ .Body}}<br>
+            <!-- ここに投稿を表示する-->
 
-            <!-- 削除ボタンに機能もたせる（後で）-->
+            <div class="posts">
+                {{range .posts}}
+                {{.ID}}: {{.Name}} {{.CreatedAtDisplay}}<br>
+                {{ .Body}}<br>
 
-            <form class="del-button" action="/delete/{{.ID}}" method="POST" onsubmit="return confirm('本当に削除しますか？')">
-                <button type="submit">削除</button>
+                <!-- 削除ボタンに機能もたせる（後で）-->
+                <form class="del-button" action="/delete/{{.ID}}" method="POST" onsubmit="return confirm('本当に削除しますか？')">
+                    <button type="submit">削除</button>
+                </form>
+
+                <hr style="width:100%;" size="1" noshade>
+                {{end}}
+            </div>
+
+            <form class="post-stack" action="/home" onsubmit="return check(this.body.value)" method="POST">
+                <div class="input-box">
+                    <input type="text" name="name" placeholder="名前（省略可）">
+                </div>
+
+                <div class="input-box">
+                    <textarea name="body" rows="5" placeholder="コメント内容"></textarea>
+                </div>
+                <button type="submit">書き込む</button>
+
             </form>
-
-            <hr style="width:100%;" size="1" noshade>
-            {{end}}
         </div>
 
-        <form class="post-stack" action="/home" onsubmit="return check(this.body.value)" method="POST">
-            <div class="input-box">
-                <input type="text" name="name" placeholder="名前（省略可）">
-            </div>
+        <!-- サイドバー -->
+        <div class="side-area">
+            <h2>使い方</h2>
+        </div>
 
-            <div class="input-box">
-                <textarea name="body" rows="5" placeholder="コメント内容"></textarea>
-            </div>
-            <button type="submit">書き込む</button>
-
-        </form>
     </div>
 
     <footer>

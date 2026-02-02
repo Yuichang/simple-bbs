@@ -1,6 +1,15 @@
+.layout {
+    display: flex;
+    flex-direction: row;
+    margin-left: 20%;
+}
+
 .post-area {
-    width: 60%;
-    margin: 0 auto;
+    width: 80%;
+}
+
+.side-area {
+    width: 20%;
 }
 
 .post-area h1 {
