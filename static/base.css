@@ -6,7 +6,9 @@ button {
 
 
 footer {
-    margin-top: 12%;
+    position: relative;
+    z-index: 2;
+    margin-top: 24px;
     background-color: plum;
     text-align: center;
 }
