@@ -17,6 +17,11 @@ func (h Handler) ShowIndex(c *gin.Context) {
 	c.HTML(http.StatusOK, "index.html", gin.H{})
 }
 
+// アカウント登録ページ
+func (h Handler) ShowRegister(c *gin.Context) {
+	c.HTML(http.StatusOK, "register.html", gin.H{})
+}
+
 // welcomeページ 後で変えるかも。
 func (h Handler) ShowHome(c *gin.Context) {
 	posts, err := models.ListPosts(c.Request.Context(), h.DB)
