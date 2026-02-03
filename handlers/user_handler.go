@@ -62,3 +62,7 @@ func (h Handler) DeletePost(c *gin.Context) {
 	}
 	c.Redirect(http.StatusSeeOther, "/home")
 }
+
+func (h Handler) AccountRegister(c *gin.Context){
+	
+}

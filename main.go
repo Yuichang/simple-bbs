@@ -37,7 +37,7 @@ func main() {
 	r.GET("/register", h.ShowRegister)
 
 	// アカウント登録（後で実装）
-	//r.POST("/register",h.AccountRegister)
+	r.POST("/register", h.AccountRegister)
 
 	// 投稿作成
 	r.POST("/home", h.CreatePost)

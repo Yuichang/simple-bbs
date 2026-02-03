@@ -22,3 +22,7 @@ footer {
     border: 1px solid plum;
     border-radius: 4px;
 }
+
+.input-box input.input-error {
+    border: 1px solid red;
+}

@@ -18,7 +18,7 @@ type Post struct {
 func ListPosts(ctx context.Context, db *sql.DB) ([]Post, error) {
 
 	// 昇順にポストを取り出す
-	rows, err := db.QueryContext(ctx, "SELECT id,name,body,created_at FROM post ORDER BY created_at ASC")
+	rows, err := db.QueryContext(ctx, "SELECT id,name,body,created_at FROM posts ORDER BY created_at ASC")
 	if err != nil {
 		return nil, err
 	}
@@ -42,11 +42,11 @@ func ListPosts(ctx context.Context, db *sql.DB) ([]Post, error) {
 }
 
 func CreatePost(ctx context.Context, db *sql.DB, name, body string) error {
-	_, err := db.ExecContext(ctx, "INSERT INTO post (name, body, created_at) VALUES (?, ?, ?)", name, body, time.Now())
+	_, err := db.ExecContext(ctx, "INSERT INTO posts (name, body, created_at) VALUES (?, ?, ?)", name, body, time.Now())
 	return err
 }
 
 func DeletePost(ctx context.Context, db *sql.DB, id string) error {
-	_, err := db.ExecContext(ctx, "DELETE FROM post WHERE id = ?", id)
+	_, err := db.ExecContext(ctx, "DELETE FROM posts WHERE id = ?", id)
 	return err
 }
