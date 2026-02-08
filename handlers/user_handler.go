@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"github.com/Yuichang/simple-bbs/models"
+	"github.com/Yuichang/simple-bbs/utils"
 	"github.com/gin-gonic/gin"
 )
 
@@ -63,6 +64,19 @@ func (h Handler) DeletePost(c *gin.Context) {
 	c.Redirect(http.StatusSeeOther, "/home")
 }
 
-func (h Handler) AccountRegister(c *gin.Context){
-	
+// アカウントを登録するハンドラ
+func (h Handler) AccountRegister(c *gin.Context) {
+
+	// JSでバリデーションチェック済
+	name := c.PostForm("username")
+	pass := c.PostForm("password")
+	gender := c.PostForm("gender")
+
+	// パスワードをハッシュ化させる
+	hashedPass, err := utils.GeneratedHash(pass)
+	if err != nil {
+		c.String(http.StatusInternalServerError, "Hash error", err)
+		return
+	}
+	err = models.CreateAccount(c.Request.Context(), h.DB, name, gender, hashedPass)
 }
