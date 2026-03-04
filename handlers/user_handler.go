@@ -67,7 +67,7 @@ func (h Handler) DeletePost(c *gin.Context) {
 // アカウントを登録するハンドラ
 func (h Handler) AccountRegister(c *gin.Context) {
 
-	// JSでバリデーションチェック済
+	// JSでバリデーションチェック済（パスワードの強度設定は未実装）
 	name := c.PostForm("username")
 	pass := c.PostForm("password")
 	gender := c.PostForm("gender")

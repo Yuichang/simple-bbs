@@ -36,7 +36,7 @@ func main() {
 	// ユーザー登録ページ
 	r.GET("/register", h.ShowRegister)
 
-	// アカウント登録（後で実装）
+	// アカウント登録（登録後の遷移まだ）
 	r.POST("/register", h.AccountRegister)
 
 	// 投稿作成

@@ -51,8 +51,8 @@ func DeletePost(ctx context.Context, db *sql.DB, id string) error {
 	return err
 }
 
-func CreateAccount(ctx context.Context, db *sql.DB, username, gender,hashedPassword string) error {
+func CreateAccount(ctx context.Context, db *sql.DB, username, gender, hashedPassword string) error {
 
-	_, err := db.ExecContext(ctx, "INSERT INTO users (name, gender,hashed_password,created_at) VALUES (?, ?, ?,?)", username, gender, hashedPassword,time.Now())
+	_, err := db.ExecContext(ctx, "INSERT INTO users (name, gender,hashed_password,created_at) VALUES (?, ?, ?,?)", username, gender, hashedPassword, time.Now())
 	return err
 }
