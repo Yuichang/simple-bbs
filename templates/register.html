@@ -14,25 +14,35 @@
 </head>
 
 <body>
-    <h2>アカウント登録ページです</h2>
+    <main class="auth-page">
+        <h2 class="auth-title">アカウント登録</h2>
 
-    <form class="register-form" action="/register" method="POST" onsubmit="return checkInput(this)">
-        <div class="input-box">
-            <input type="text" name="username" placeholder="ユーザー名">
+        <form class="auth-form" action="/register" method="POST" onsubmit="return checkInput(this)">
+            <div class="input-box">
+                <input type="text" name="username" placeholder="ユーザー名">
+            </div>
+
+            <div class="input-box">
+                <input type="password" name="password" placeholder="パスワード">
+            </div>
+
+            <div class="radio-button">
+                <label><input type="radio" name="gender" value="m" checked>男</label>
+                <label><input type="radio" name="gender" value="f">女</label>
+                <label><input type="radio" name="gender" value="o">その他</label>
+            </div>
+
+            <button type="submit">登録</button>
+        </form>
+
+        <div class="auth-links">
+            <a href="/login">ログインはこちら</a>
         </div>
+    </main>
 
-        <div class="input-box">
-            <input type="password" name="password" placeholder="パスワード">
-        </div>
-
-        <div class="radio-button">
-            <input type="radio" name="gender" value="m" checked>男
-            <input type="radio" name="gender" value="f">女
-            <input type="radio" name="gender" value="o">その他
-        </div>
-
-        <button type="submit">登録</button>
-    </form>
+    <footer>
+        <p>🐹2026:シンプル掲示板🐹</p>
+    </footer>
 
 </body>
 

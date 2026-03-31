@@ -3,23 +3,37 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ログイン</title>
+    <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css">
+    <link rel="stylesheet" href="/static/base.css">
+    <link rel="stylesheet" href="/static/login.css">
 </head>
 
 <body>
+    <main class="auth-page">
+        <h2 class="auth-title">ログイン</h2>
 
-    <h2>ログイン</h2>
-    <form action="/login" method="POST">
-        <div>
-            <input type="text" name="username" placeholder="ユーザー名">
+        <form class="auth-form" action="/login" method="POST">
+            <div class="input-box">
+                <input type="text" name="username" placeholder="ユーザー名">
+            </div>
+
+            <div class="input-box">
+                <input type="password" name="password" placeholder="パスワード">
+            </div>
+
+            <button type="submit">ログイン</button>
+        </form>
+
+        <div class="auth-links">
+            <a href="/register">アカウント登録はこちら</a>
         </div>
+    </main>
 
-        <div>
-            <input type="password" name="password" placeholder="パスワード">
-        </div>
-
-        <button type="submit">ログイン</button>
-    </form>
+    <footer>
+        <p>🐹2026:シンプル掲示板🐹</p>
+    </footer>
 
 </body>
 

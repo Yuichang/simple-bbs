@@ -125,6 +125,22 @@ func (h Handler) AccountRegister(c *gin.Context) {
 	pass := c.PostForm("password")
 	gender := c.PostForm("gender")
 
+	if name == "" || pass == "" {
+		c.String(http.StatusBadRequest, "ユーザー名とパスワードを入力してください")
+		return
+	}
+
+	// 同名のユーザーがいるかチェック
+	exists, err := models.IsUserExists(c.Request.Context(), h.DB, name)
+	if err != nil {
+		c.String(http.StatusInternalServerError, "DB error")
+		return
+	}
+	if exists {
+		c.String(http.StatusBadRequest, "そのユーザー名は既に使われています")
+		return
+	}
+
 	hashedPass, err := utils.GeneratedHash(pass)
 	if err != nil {
 		c.String(http.StatusInternalServerError, "Hash error")
@@ -159,12 +175,12 @@ func (h Handler) Login(c *gin.Context) {
 
 	userID, username, hashedPass, err := models.GetUserByName(c.Request.Context(), h.DB, name)
 	if err != nil {
-		c.String(http.StatusUnauthorized, "ユーザーが存在しません")
+		c.String(http.StatusUnauthorized, "ユーザー名またはパスワードが違います")
 		return
 	}
 
 	if !utils.VeryifyPassword(hashedPass, pass) {
-		c.String(http.StatusUnauthorized, "パスワードが違います")
+		c.String(http.StatusUnauthorized, "ユーザー名またはパスワードが違います")
 		return
 	}
 

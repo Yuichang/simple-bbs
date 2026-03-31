@@ -25,19 +25,6 @@
     padding: 8px;
 }
 
-.radio-button {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.radio-button label {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
-
 .auth-form button {
     align-self: flex-start;
     padding: 8px 12px;

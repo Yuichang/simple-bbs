@@ -90,3 +90,19 @@ func GetPostByID(ctx context.Context, db *sql.DB, id string) (Post, error) {
 	p.CreatedAtDisplay = p.CreatedAt.Format("2006-01-02 15:04:05")
 	return p, nil
 }
+
+// 既に同じ名前のユーザーが存在するか
+func IsUserExists(ctx context.Context, db *sql.DB, name string) (bool, error) {
+	var count int
+
+	err := db.QueryRowContext(ctx,
+		"SELECT COUNT(*) FROM users WHERE name = ?",
+		name,
+	).Scan(&count)
+
+	if err != nil {
+		return false, err
+	}
+
+	return count > 0, nil
+}

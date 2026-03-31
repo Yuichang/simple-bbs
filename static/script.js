@@ -7,18 +7,6 @@ function checkSubmit(bodyText){
         return false;
     }
 }
-
-// ポストを削除できるかチェック
-// (一旦削除ボタンの挙動確認。後にDB連携)
-
-function isPostOwner(userId=0, postUserId=0){
-    if(userId === postUserId){
-        return true;
-    }else{
-        return false;
-    }
-}
-
 // 未入力項目チェック
 function checkInput(form){
     const username = form.username;
