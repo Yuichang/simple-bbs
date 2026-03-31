@@ -40,7 +40,7 @@
 
             <form class="post-stack" action="/home" onsubmit="return check(this.body.value)" method="POST">
                 <div class="input-box">
-                    <input type="text" name="name" placeholder="名前（省略可）">
+                    <input type="text" name="name" value="{{.username}}" readonly>
                 </div>
 
                 <div class="input-box">

@@ -5,6 +5,8 @@ import (
 
 	"github.com/Yuichang/simple-bbs/handlers"
 	"github.com/Yuichang/simple-bbs/models"
+	"github.com/gin-contrib/sessions"
+	"github.com/gin-contrib/sessions/cookie"
 	"github.com/gin-gonic/gin"
 )
 
@@ -19,6 +21,9 @@ func main() {
 
 	// ルータ作成
 	r := gin.Default()
+
+	store := cookie.NewStore([]byte("secret"))
+	r.Use(sessions.Sessions("mysession", store))
 
 	// 静的ファイル
 	r.Static("/static", "./static")
