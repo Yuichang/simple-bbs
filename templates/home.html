@@ -27,12 +27,16 @@
                     {{.ID}}: {{.Name}} {{.CreatedAtDisplay}}<br>
                     {{ .Body}}
 
-                    <!-- 削除ボタンに機能もたせる（後で）-->
+                    <!-- 自分の投稿だけ削除ボタンを表示-->
+                    <!-- ログインしてる && idが等しい-->
+                    {{ if ne $.user_id 0 }}
+                    {{ if eq .UserID $.user_id }}
                     <form class="del-button" action="/delete/{{.ID}}" method="POST"
                         onsubmit="return confirm('本当に削除しますか？')">
                         <button type="submit">削除</button>
                     </form>
-
+                    {{end}}
+                    {{ end }}
                     <hr style="width:100%;" size="1" noshade>
                     {{end}}
                 </div>
@@ -40,7 +44,7 @@
 
             <form class="post-stack" action="/home" onsubmit="return check(this.body.value)" method="POST">
                 <div class="input-box">
-                    <input type="text" name="name" value="{{.username}}" readonly>
+                    <input type="text" name="name" value="{{.username}}" placeholder="名前">
                 </div>
 
                 <div class="input-box">
@@ -53,7 +57,19 @@
 
         <!-- サイドバー -->
         <div class="side-area">
-            <a href="/register">アカウント登録（未実装）</a>
+            <!-- ログインしている -->
+            {{if .username}}
+            <p>ログイン中: {{.username}}</p>
+
+            <!-- 確認を挟む-->
+            <a href="logout" onclick="return confirm('本当にログアウトしますか？')">ログアウト</a>
+            {{else}}
+            <!-- ログインしていない-->
+            <div>
+                <a href="/login"> ログイン </a>
+            </div>
+            {{end}}
+            <a href="/register">アカウント登録</a>
         </div>
 
     </div>

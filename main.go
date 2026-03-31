@@ -38,10 +38,14 @@ func main() {
 
 	// "homeページ"
 	r.GET("/home", h.ShowHome)
+
 	// ユーザー登録ページ
 	r.GET("/register", h.ShowRegister)
 
-	// アカウント登録（登録後の遷移まだ）
+	// ログインページ
+	r.GET("/login", h.ShowLogin)
+
+	// アカウント登録
 	r.POST("/register", h.AccountRegister)
 
 	// 投稿作成
@@ -49,6 +53,12 @@ func main() {
 
 	// 投稿削除
 	r.POST("/delete/:id", h.DeletePost)
+
+	// ログイン処理
+	r.POST("/login", h.Login)
+
+	// ログアウト処理
+	r.GET("/logout", h.Logout)
 
 	// サーバ起動(http://localhost:8080)
 	r.Run()

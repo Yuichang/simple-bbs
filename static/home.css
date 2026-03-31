@@ -18,6 +18,10 @@
     height: 100vh;
     background: lavender;
     border: 1px solid black;
+    gap: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .post-area h1 {
